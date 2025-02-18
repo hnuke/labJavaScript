@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio1</title>
+</head>
+<body>
+    <script language="JavaScript" text="text/JavaScript">
+        let number;
+        do{
+            number = prompt("Digite um número inteiro positivo: ");
+            number = Number(number);
+        }
+        while(isNaN(number) || !Number.isInteger(number) || number <= 0);
+
+        number = number % 2 == 0 ? "Par" : "Impar";
+        alert("Seu número é " + number);
+
+    </script>
+</body>
+</html>
