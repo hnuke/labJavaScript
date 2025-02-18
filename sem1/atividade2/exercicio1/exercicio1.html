@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio1</title>
+</head>
+<body>
+    <script>
+        const DAYSNAMES = ['Segunda-feira', 'Terça-feira', 'Quarta-feira','Quinta-feira','Sexta-feira','Sabado','Domingo'];
+        const MONTHSNAMES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+        let objectDate = new Date();
+        document.write(DAYSNAMES[objectDate.getDay()] + ", " + objectDate.getDate() + " de " + MONTHSNAMES[objectDate.getMonth()] + " de " + objectDate.getFullYear());
+
+    </script>
+</body>
+</html>
