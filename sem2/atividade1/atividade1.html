@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios</title>
+</head>
+<body>
+    <form>
+        <input id="input" type="number">
+        <button type="reset" id="butto" onclick="">Criar</button>
+    </form>
+    <ol id="UL">
+        
+    </ol>
+    <script>
+        let ListaNaoOrdenada = document.getElementById('UL');
+        let arrayObjetos = [];
+        function AdicionarValorNoArray(valorNumero) {
+                arrayObjetos.push({numero: valorNumero,});
+            }
+        document.getElementById("butto").addEventListener("click", function(){
+            AdicionarValorNoArray(document.getElementById('input').value) 
+            let elementText = document.createTextNode(arrayObjetos[arrayObjetos.length-1].numero);
+            let elementP = document.createElement("P");
+            let elementLI = document.createElement("LI");
+            elementP.appendChild(elementText);
+            elementLI.appendChild(elementP);
+            ListaNaoOrdenada.appendChild(elementLI);
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio3</title>
+</head>
+<body>
+    <script>
+        function PalindromoTest(textToVerify){
+            let palindromoVersion = "";
+            for (let i = textToVerify.length - 1; i >= 0; i--){
+                palindromoVersion += textToVerify.charAt(i);
+            }
+            if (palindromoVersion === textToVerify){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        let userText = prompt("Type: ");
+        let isPalindromo = PalindromoTest(userText);
+        alert("Palindromo: " + isPalindromo);
+    </script>
+</body>
+</html>
