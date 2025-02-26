@@ -3,14 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercícios</title>
+    <title>Atividade2</title>
 </head>
 <body>
-    <h1>Atividade 1</h1>
-    <ul>
-        <li><a href="exercicio1/exercicio1.html">Exercício 1</a></li>
-        <li><a href="exercicio2/exercicio2.html">Exercício 2</a></li>
-        <li><a href="exercicio3/exercicio3.html">Exercício 3</a></li>
-    </ul> 
+    <form>
+        <input id="inputMarca" placeholder="Marca" type="text">
+        <input id="inputModelo" placeholder="Modelo" type="text">
+        <input id="inputAno" placeholder="Ano" type="number">
+        <input id="inputCor" placeholder="Cor" type="text">
+        <input id="inputKM" placeholder="KM" type="number">
+        <input id="inputFipe" placeholder="Valor Fipe" type="number">
+        <button id="butto" type="button">Calcular</button>
+    </form>
+
+    <p id="para"></p>
+
+    <script>
+        function Carro() {
+            this.Marca;
+            this.Modelo;
+            this.Ano;
+            this.Cor;
+            this.KM;
+            this.Fipe;
+
+            this.anosUtilizacao = function() {
+                let objectDate = new Date();
+                return (objectDate.getFullYear() - this.Ano);
+            }
+
+            this.valorMercado = function() {
+                let anos = this.anosUtilizacao();
+                if (this.KM > (50000 / anos)) {
+                    return "Valor é R$" + ((this.Fipe / 100) * 90);
+                } else if (this.KM > (30000 / anos)) {
+                    return "Valor é R$" + this.Fipe;
+                } else if (this.KM <= (30000 / anos)) {
+                    return "Valor é R$" + ((this.Fipe / 100) * 110);
+                }
+            }
+        }
+
+        let button = document.getElementById("butto").addEventListener("click", function() {
+            let objetoCarro = new Carro();
+            let paragrafo = document.getElementById("para");
+
+            objetoCarro.Marca = document.getElementById("inputMarca").value;
+            objetoCarro.Modelo = document.getElementById("inputModelo").value;
+            objetoCarro.Ano = parseInt(document.getElementById("inputAno").value);
+            objetoCarro.Cor = document.getElementById("inputCor").value;
+            objetoCarro.KM = parseInt(document.getElementById("inputKM").value);
+            objetoCarro.Fipe = parseFloat(document.getElementById("inputFipe").value);
+
+            if (isNaN(objetoCarro.Ano) || isNaN(objetoCarro.KM) || isNaN(objetoCarro.Fipe)) {
+                paragrafo.innerHTML = "Por favor, insira valores válidos!";
+            } else {
+                paragrafo.innerHTML = "Anos utilizados: " + objetoCarro.anosUtilizacao() + "<br>" + objetoCarro.valorMercado();
+            }
+        })
+    </script>
 </body>
 </html>
