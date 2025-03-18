@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Pessoas</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Criando classe base para Pessoa
+        function Person() {
+            this.total = 0;
+        }
+
+        // Criando classe para Homens
+        function Man() {
+            this.count = 0;
+        }
+
+        // Criando classe para Mulheres
+        function Woman() {
+            this.count = 0;
+        }
+
+        // Criando objetos de cada classe
+        let totalPeople = new Person();
+        let men = new Man();
+        let women = new Woman();
+
+        // Criando a estrutura do contador
+        let app = document.getElementById("app");
+
+        let container = document.createElement("div");
+        container.style.width = "350px";
+        container.style.margin = "50px auto";
+        container.style.padding = "20px";
+        container.style.textAlign = "center";
+        container.style.border = "2px solid black";
+        container.style.borderRadius = "10px";
+        container.style.backgroundColor = "#f4f4f4";
+        container.style.boxShadow = "3px 3px 10px rgba(0,0,0,0.2)";
+
+        let title = document.createElement("h2");
+        title.innerText = "Contador de Pessoas";
+        container.appendChild(title);
+
+        // Criando seção de homens
+        let menContainer = document.createElement("div");
+        menContainer.style.display = "flex";
+        menContainer.style.alignItems = "center";
+        menContainer.style.justifyContent = "space-between";
+        menContainer.style.marginBottom = "10px";
+
+        let menImage = document.createElement("img");
+        menImage.src = "homem.png"; // Substituir por uma imagem real de homem
+        menImage.style.width = "50px";
+        menImage.style.height = "50px";
+        menContainer.appendChild(menImage);
+
+        let menCounter = document.createElement("span");
+        menCounter.innerText = "0";
+        menCounter.style.fontSize = "2em";
+        menCounter.style.fontWeight = "bold";
+        menContainer.appendChild(menCounter);
+
+        let menButtons = document.createElement("div");
+        
+        let addMan = document.createElement("button");
+        addMan.innerText = "+1";
+        addMan.onclick = function() {
+            men.count++;
+            totalPeople.total++;
+            updateCounters();
+        };
+        menButtons.appendChild(addMan);
+
+        let removeMan = document.createElement("button");
+        removeMan.innerText = "-1";
+        removeMan.onclick = function() {
+            if (men.count > 0) {
+                men.count--;
+                totalPeople.total--;
+                updateCounters();
+            }
+        };
+        menButtons.appendChild(removeMan);
+
+        menContainer.appendChild(menButtons);
+        container.appendChild(menContainer);
+
+        // Criando seção de mulheres
+        let womenContainer = document.createElement("div");
+        womenContainer.style.display = "flex";
+        womenContainer.style.alignItems = "center";
+        womenContainer.style.justifyContent = "space-between";
+        womenContainer.style.marginBottom = "10px";
+
+        let womenImage = document.createElement("img");
+        womenImage.src = "mulher.jpg"; // Substituir por uma imagem real de mulher
+        womenImage.style.width = "50px";
+        womenImage.style.height = "50px";
+        womenContainer.appendChild(womenImage);
+
+        let womenCounter = document.createElement("span");
+        womenCounter.innerText = "0";
+        womenCounter.style.fontSize = "2em";
+        womenCounter.style.fontWeight = "bold";
+        womenContainer.appendChild(womenCounter);
+
+        let womenButtons = document.createElement("div");
+
+        let addWoman = document.createElement("button");
+        addWoman.innerText = "+1";
+        addWoman.onclick = function() {
+            women.count++;
+            totalPeople.total++;
+            updateCounters();
+        };
+        womenButtons.appendChild(addWoman);
+
+        let removeWoman = document.createElement("button");
+        removeWoman.innerText = "-1";
+        removeWoman.onclick = function() {
+            if (women.count > 0) {
+                women.count--;
+                totalPeople.total--;
+                updateCounters();
+            }
+        };
+        womenButtons.appendChild(removeWoman);
+
+        womenContainer.appendChild(womenButtons);
+        container.appendChild(womenContainer);
+
+        // Criando total de pessoas
+        let totalContainer = document.createElement("div");
+        totalContainer.style.marginTop = "20px";
+
+        let totalTitle = document.createElement("h3");
+        totalTitle.innerText = "Total de Pessoas:";
+        totalContainer.appendChild(totalTitle);
+
+        let totalCounter = document.createElement("p");
+        totalCounter.innerText = "0";
+        totalCounter.style.fontSize = "2em";
+        totalCounter.style.fontWeight = "bold";
+        totalContainer.appendChild(totalCounter);
+
+        container.appendChild(totalContainer);
+
+        // Adiciona o container ao app
+        app.appendChild(container);
+
+        // Função para atualizar os contadores
+        function updateCounters() {
+            menCounter.innerText = men.count;
+            womenCounter.innerText = women.count;
+            totalCounter.innerText = totalPeople.total;
+        }
+    </script>
+</body>
+</html>

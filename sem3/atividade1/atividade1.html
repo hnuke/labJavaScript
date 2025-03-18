@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <form id="userForm">
+            <label>Nome:</label>
+            <input type="text" id="name" required>
+
+            <label>Email:</label>
+            <input type="email" id="email" required>
+
+            <label>Data de Nascimento:</label>
+            <input type="date" id="birthDate">
+
+            <label>Telefone:</label>
+            <input type="text" id="telephone">
+
+            <label>Matrícula:</label>
+            <input type="text" id="enrollment">
+
+            <label>Smartphone:</label>
+            <input type="text" id="smartphone">
+
+            <label>Tipo:</label><br>
+            <input type="radio" name="classType" value="professor" id="professorRadio"> Professor
+            <input type="radio" name="classType" value="student" id="studentRadio"> Estudante
+
+            <div id="professorFields" class="hidden">
+                <label>Área:</label>
+                <input type="text" id="area">
+
+                <label>Lattes:</label>
+                <input type="text" id="lattes">
+            </div>
+
+            <div id="studentFields" class="hidden">
+                <label>Curso:</label>
+                <input type="text" id="course">
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        function Person(name, email, birthDate, telephone, enrollment, smartphone) {
+            this.name = name;
+            this.email = email;
+            this.birthDate = birthDate;
+            this.telephone = telephone;
+            this.enrollment = enrollment;
+            this.smartphone = smartphone;
+        }
+
+        function Professor(name, email, birthDate, telephone, enrollment, smartphone, area, lattes) {
+            Person.call(this, name, email, birthDate, telephone, enrollment, smartphone);
+            this.area = area;
+            this.lattes = lattes;
+        }
+
+        function Student(name, email, birthDate, telephone, enrollment, smartphone, course) {
+            Person.call(this, name, email, birthDate, telephone, enrollment, smartphone);
+            this.course = course;
+        }
+
+        document.getElementById("professorRadio").addEventListener("change", function() {
+            document.getElementById("professorFields").classList.remove("hidden");
+            document.getElementById("studentFields").classList.add("hidden");
+        });
+
+        document.getElementById("studentRadio").addEventListener("change", function() {
+            document.getElementById("studentFields").classList.remove("hidden");
+            document.getElementById("professorFields").classList.add("hidden");
+        });
+
+        document.getElementById("userForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let birthDate = document.getElementById("birthDate").value;
+            let telephone = document.getElementById("telephone").value;
+            let enrollment = document.getElementById("enrollment").value;
+            let smartphone = document.getElementById("smartphone").value;
+
+            let classType = document.querySelector('input[name="classType"]:checked');
+
+            if (!classType) {
+                alert("Selecione um tipo (Professor ou Estudante).");
+                return;
+            }
+
+            let user;
+            if (classType.value === "professor") {
+                let area = document.getElementById("area").value;
+                let lattes = document.getElementById("lattes").value;
+                user = new Professor(name, email, birthDate, telephone, enrollment, smartphone, area, lattes);
+            } else {
+                let course = document.getElementById("course").value;
+                user = new Student(name, email, birthDate, telephone, enrollment, smartphone, course);
+            }
+
+            console.log("Usuário cadastrado:", user);
+            alert("Usuário cadastrado com sucesso! Veja o console para detalhes.");
+        });
+    </script>
+
+</body>
+</html>
