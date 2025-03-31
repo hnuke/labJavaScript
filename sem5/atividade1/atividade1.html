@@ -7,6 +7,17 @@
 </head>
 <body>
     <script>
+        let resultado = "0";
+
+        function firstDigit(digit){
+            if (resultado === "0"){
+                resultado = digit;
+            }
+            else{
+                resultado += digit;
+            }
+        }
+
         //html
         document.firstElementChild.style.display = "flex";
         document.firstElementChild.style.height = "100%";
@@ -35,7 +46,6 @@
 
         sectionResult.style.width = "100%";
         sectionResult.style.height = "200px";
-        sectionResult.style.backgroundColor = "blue";
         sectionResult.style.display = "flex";
         sectionResult.style.justifyContent = "flex-end";
         sectionResult.style.alignItems = "flex-end";
@@ -45,13 +55,13 @@
         sectionMethods.style.display = "flex";
         sectionMethods.style.flexGrow = "1";
         sectionMethods.style.flexWrap = "wrap";
-        sectionMethods.style.backgroundColor = "red";
 
         // elements
         let resultP = document.createElement("p");
-        resultP.style.fontSize = "120px";
+        resultP.style.fontSize = "100px";
         resultP.style.margin = "0px 50px 0px 0px";
-        resultP.innerHTML = "0";
+        resultP.style.color = "white";
+        resultP.innerHTML = resultado;
         
 
         sectionResult.appendChild(resultP);
@@ -62,6 +72,10 @@
         ACButton.style.height = "100px";
         ACButton.style.borderRadius = "100px";
         ACButton.style.fontSize = "50px";
+        ACButton.onclick = function() {
+            resultado = "0";
+            resultP.innerHTML = resultado;
+        }
 
         let moreAndLess = document.createElement("button");
         moreAndLess.innerHTML = "+/=";
@@ -83,104 +97,164 @@
         Divisao.style.height = "100px";
         Divisao.style.borderRadius = "100px";
         Divisao.style.fontSize = "50px";
+        restoDivisao.onclick = function() {
+            resultado += "/";
+            resultP.innerHTML = resultado;
+        }
 
-        let seven = document.createElement("button");
-        seven.innerHTML = "7";
-        seven.style.width = "100px";
-        seven.style.height = "100px";
-        seven.style.borderRadius = "100px";
-        seven.style.fontSize = "50px";
+        let sete = document.createElement("button");
+        sete.innerHTML = "7";
+        sete.style.width = "100px";
+        sete.style.height = "100px";
+        sete.style.borderRadius = "100px";
+        sete.style.fontSize = "50px";
+        sete.onclick = function() {
+            firstDigit("7");
+            resultP.innerHTML = resultado;
+        }
 
-        let eight = document.createElement("button");
-        eight.innerHTML = "8";
-        eight.style.width = "100px";
-        eight.style.height = "100px";
-        eight.style.borderRadius = "100px";
-        eight.style.fontSize = "50px";
+        let oito = document.createElement("button");
+        oito.innerHTML = "8";
+        oito.style.width = "100px";
+        oito.style.height = "100px";
+        oito.style.borderRadius = "100px";
+        oito.style.fontSize = "50px";
+        oito.onclick = function() {
+            firstDigit("8");
+            resultP.innerHTML = resultado;
+        }
 
-        let nine = document.createElement("button");
-        nine.innerHTML = "9";
-        nine.style.width = "100px";
-        nine.style.height = "100px";
-        nine.style.borderRadius = "100px";
-        nine.style.fontSize = "50px";
+        let nove = document.createElement("button");
+        nove.innerHTML = "9";
+        nove.style.width = "100px";
+        nove.style.height = "100px";
+        nove.style.borderRadius = "100px";
+        nove.style.fontSize = "50px";
+        nove.onclick = function() {
+            firstDigit("9");
+            resultP.innerHTML = resultado;
+        }
 
-        let multiply = document.createElement("button");
-        multiply.innerHTML = "×";
-        multiply.style.width = "100px";
-        multiply.style.height = "100px";
-        multiply.style.borderRadius = "100px";
-        multiply.style.fontSize = "50px";
+        let multiplicar = document.createElement("button");
+        multiplicar.innerHTML = "×";
+        multiplicar.style.width = "100px";
+        multiplicar.style.height = "100px";
+        multiplicar.style.borderRadius = "100px";
+        multiplicar.style.fontSize = "50px";
+        multiplicar.onclick = function() {
+            resultado += "*";
+            resultP.innerHTML = resultado;
+        }
 
-        let four = document.createElement("button");
-        four.innerHTML = "4";
-        four.style.width = "100px";
-        four.style.height = "100px";
-        four.style.borderRadius = "100px";
-        four.style.fontSize = "50px";
+        let quatro = document.createElement("button");
+        quatro.innerHTML = "4";
+        quatro.style.width = "100px";
+        quatro.style.height = "100px";
+        quatro.style.borderRadius = "100px";
+        quatro.style.fontSize = "50px";
+        quatro.onclick = function() {
+            firstDigit("4");
+            resultP.innerHTML = resultado;
+        }
 
-        let five = document.createElement("button");
-        five.innerHTML = "5";
-        five.style.width = "100px";
-        five.style.height = "100px";
-        five.style.borderRadius = "100px";
-        five.style.fontSize = "50px";
+        let cinco = document.createElement("button");
+        cinco.innerHTML = "5";
+        cinco.style.width = "100px";
+        cinco.style.height = "100px";
+        cinco.style.borderRadius = "100px";
+        cinco.style.fontSize = "50px";
+        cinco.onclick = function() {
+            firstDigit("5");
+            resultP.innerHTML = resultado;
+        }
 
-        let six = document.createElement("button");
-        six.innerHTML = "6";
-        six.style.width = "100px";
-        six.style.height = "100px";
-        six.style.borderRadius = "100px";
-        six.style.fontSize = "50px";
+        let seis = document.createElement("button");
+        seis.innerHTML = "6";
+        seis.style.width = "100px";
+        seis.style.height = "100px";
+        seis.style.borderRadius = "100px";
+        seis.style.fontSize = "50px";
+        seis.onclick = function() {
+            firstDigit("6");
+            resultP.innerHTML = resultado;
+        }
 
-        let subtract = document.createElement("button");
-        subtract.innerHTML = "−";
-        subtract.style.width = "100px";
-        subtract.style.height = "100px";
-        subtract.style.borderRadius = "100px";
-        subtract.style.fontSize = "50px";
+        let subtrair = document.createElement("button");
+        subtrair.innerHTML = "−";
+        subtrair.style.width = "100px";
+        subtrair.style.height = "100px";
+        subtrair.style.borderRadius = "100px";
+        subtrair.style.fontSize = "50px";
+        subtrair.onclick = function() {
+            resultado += "-";
+            resultP.innerHTML = resultado;
+        }
 
-        let one = document.createElement("button");
-        one.innerHTML = "1";
-        one.style.width = "100px";
-        one.style.height = "100px";
-        one.style.borderRadius = "100px";
-        one.style.fontSize = "50px";
+        let um = document.createElement("button");
+        um.innerHTML = "1";
+        um.style.width = "100px";
+        um.style.height = "100px";
+        um.style.borderRadius = "100px";
+        um.style.fontSize = "50px";
+        um.onclick = function() {
+            firstDigit("1");
+            resultP.innerHTML = resultado;
+        }
 
-        let two = document.createElement("button");
-        two.innerHTML = "2";
-        two.style.width = "100px";
-        two.style.height = "100px";
-        two.style.borderRadius = "100px";
-        two.style.fontSize = "50px";
+        let dois = document.createElement("button");
+        dois.innerHTML = "2";
+        dois.style.width = "100px";
+        dois.style.height = "100px";
+        dois.style.borderRadius = "100px";
+        dois.style.fontSize = "50px";
+        dois.onclick = function() {
+            firstDigit("2");
+            resultP.innerHTML = resultado;
+        }
 
-        let three = document.createElement("button");
-        three.innerHTML = "3";
-        three.style.width = "100px";
-        three.style.height = "100px";
-        three.style.borderRadius = "100px";
-        three.style.fontSize = "50px";
+        let tres = document.createElement("button");
+        tres.innerHTML = "3";
+        tres.style.width = "100px";
+        tres.style.height = "100px";
+        tres.style.borderRadius = "100px";
+        tres.style.fontSize = "50px";
+        tres.onclick = function() {
+            firstDigit("3");
+            resultP.innerHTML = resultado;
+        }
 
-        let add = document.createElement("button");
-        add.innerHTML = "+";
-        add.style.width = "100px";
-        add.style.height = "100px";
-        add.style.borderRadius = "100px";
-        add.style.fontSize = "50px";
+        let somar = document.createElement("button");
+        somar.innerHTML = "+";
+        somar.style.width = "100px";
+        somar.style.height = "100px";
+        somar.style.borderRadius = "100px";
+        somar.style.fontSize = "50px";
+        somar.onclick = function() {
+            resultado += "+";
+            resultP.innerHTML = resultado;
+        }
 
         let zero = document.createElement("button");
         zero.innerHTML = "0";
-        zero.style.width = "200px"; // O botão "0" geralmente ocupa o dobro do tamanho
+        zero.style.width = "200px";
         zero.style.height = "100px";
         zero.style.borderRadius = "100px";
         zero.style.fontSize = "50px";
+        zero.onclick = function() {
+            firstDigit("0");
+            resultP.innerHTML = resultado;
+        }
 
-        let decimal = document.createElement("button");
-        decimal.innerHTML = ".";
-        decimal.style.width = "100px";
-        decimal.style.height = "100px";
-        decimal.style.borderRadius = "100px";
-        decimal.style.fontSize = "50px";
+        let ponto = document.createElement("button");
+        ponto.innerHTML = ".";
+        ponto.style.width = "100px";
+        ponto.style.height = "100px";
+        ponto.style.borderRadius = "100px";
+        ponto.style.fontSize = "50px";
+        ponto.onclick = function() {
+            resultado += ".";
+            resultP.innerHTML = resultado;
+        }
 
         let equals = document.createElement("button");
         equals.innerHTML = "=";
@@ -190,26 +264,32 @@
         equals.style.fontSize = "50px";
         equals.style.backgroundColor = "orange";
         equals.style.color = "white";
+        equals.onclick = function() {
+            resultado = eval(resultado);
+            resultP.innerHTML = resultado;
+        }
+
+
 
 
         sectionMethods.appendChild(ACButton);
         sectionMethods.appendChild(moreAndLess);
         sectionMethods.appendChild(restoDivisao);
         sectionMethods.appendChild(Divisao);
-        sectionMethods.appendChild(seven);
-        sectionMethods.appendChild(eight);
-        sectionMethods.appendChild(nine);
-        sectionMethods.appendChild(multiply);
-        sectionMethods.appendChild(four);
-        sectionMethods.appendChild(five);
-        sectionMethods.appendChild(six);
-        sectionMethods.appendChild(subtract);
-        sectionMethods.appendChild(one);
-        sectionMethods.appendChild(two);
-        sectionMethods.appendChild(three);
-        sectionMethods.appendChild(add);
+        sectionMethods.appendChild(sete);
+        sectionMethods.appendChild(oito);
+        sectionMethods.appendChild(nove);
+        sectionMethods.appendChild(multiplicar);
+        sectionMethods.appendChild(quatro);
+        sectionMethods.appendChild(cinco);
+        sectionMethods.appendChild(seis);
+        sectionMethods.appendChild(subtrair);
+        sectionMethods.appendChild(um);
+        sectionMethods.appendChild(dois);
+        sectionMethods.appendChild(tres);
+        sectionMethods.appendChild(somar);
         sectionMethods.appendChild(zero);
-        sectionMethods.appendChild(decimal);
+        sectionMethods.appendChild(ponto);
         sectionMethods.appendChild(equals);
 
 
