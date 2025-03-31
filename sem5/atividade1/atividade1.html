@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <script>
+        //html
+        document.firstElementChild.style.display = "flex";
+        document.firstElementChild.style.height = "100%";
+        //body
+        document.body.style.margin = "0px";
+        document.body.style.height = "100%";
+        document.body.style.width = "100%";
+        document.body.style.display = "flex";
+        document.body.style.justifyContent = "center";
+        document.body.style.alignItems = "center";
+
+
+        let app = document.createElement("div");
+        document.body.appendChild(app);
+        app.style.backgroundColor = "black";
+        app.style.width = "400px";
+        app.style.minHeight = "620px";
+        app.style.display = "flex";
+        app.style.flexDirection = "column";
+
+        let sectionResult = document.createElement("section");
+        let sectionMethods = document.createElement("section");
+        
+        app.appendChild(sectionResult);
+        app.appendChild(sectionMethods);
+
+        sectionResult.style.width = "100%";
+        sectionResult.style.height = "200px";
+        sectionResult.style.backgroundColor = "blue";
+        sectionResult.style.display = "flex";
+        sectionResult.style.justifyContent = "flex-end";
+        sectionResult.style.alignItems = "flex-end";
+
+        sectionMethods.style.width = "100%";
+        sectionMethods.style.height = "100%";
+        sectionMethods.style.display = "flex";
+        sectionMethods.style.flexGrow = "1";
+        sectionMethods.style.flexWrap = "wrap";
+        sectionMethods.style.backgroundColor = "red";
+
+        // elements
+        let resultP = document.createElement("p");
+        resultP.style.fontSize = "120px";
+        resultP.style.margin = "0px 50px 0px 0px";
+        resultP.innerHTML = "0";
+        
+
+        sectionResult.appendChild(resultP);
+
+        let ACButton = document.createElement("button");
+        ACButton.innerHTML = "AC";
+        ACButton.style.width = "100px";
+        ACButton.style.height = "100px";
+        ACButton.style.borderRadius = "100px";
+        ACButton.style.fontSize = "50px";
+
+        let moreAndLess = document.createElement("button");
+        moreAndLess.innerHTML = "+/=";
+        moreAndLess.style.width = "100px";
+        moreAndLess.style.height = "100px";
+        moreAndLess.style.borderRadius = "100px";
+        moreAndLess.style.fontSize = "50px";
+
+        let restoDivisao = document.createElement("button");
+        restoDivisao.innerHTML = "%";
+        restoDivisao.style.width = "100px";
+        restoDivisao.style.height = "100px";
+        restoDivisao.style.borderRadius = "100px";
+        restoDivisao.style.fontSize = "50px";
+
+        let Divisao = document.createElement("button");
+        Divisao.innerHTML = "/";
+        Divisao.style.width = "100px";
+        Divisao.style.height = "100px";
+        Divisao.style.borderRadius = "100px";
+        Divisao.style.fontSize = "50px";
+
+        let seven = document.createElement("button");
+        seven.innerHTML = "7";
+        seven.style.width = "100px";
+        seven.style.height = "100px";
+        seven.style.borderRadius = "100px";
+        seven.style.fontSize = "50px";
+
+        let eight = document.createElement("button");
+        eight.innerHTML = "8";
+        eight.style.width = "100px";
+        eight.style.height = "100px";
+        eight.style.borderRadius = "100px";
+        eight.style.fontSize = "50px";
+
+        let nine = document.createElement("button");
+        nine.innerHTML = "9";
+        nine.style.width = "100px";
+        nine.style.height = "100px";
+        nine.style.borderRadius = "100px";
+        nine.style.fontSize = "50px";
+
+        let multiply = document.createElement("button");
+        multiply.innerHTML = "×";
+        multiply.style.width = "100px";
+        multiply.style.height = "100px";
+        multiply.style.borderRadius = "100px";
+        multiply.style.fontSize = "50px";
+
+        let four = document.createElement("button");
+        four.innerHTML = "4";
+        four.style.width = "100px";
+        four.style.height = "100px";
+        four.style.borderRadius = "100px";
+        four.style.fontSize = "50px";
+
+        let five = document.createElement("button");
+        five.innerHTML = "5";
+        five.style.width = "100px";
+        five.style.height = "100px";
+        five.style.borderRadius = "100px";
+        five.style.fontSize = "50px";
+
+        let six = document.createElement("button");
+        six.innerHTML = "6";
+        six.style.width = "100px";
+        six.style.height = "100px";
+        six.style.borderRadius = "100px";
+        six.style.fontSize = "50px";
+
+        let subtract = document.createElement("button");
+        subtract.innerHTML = "−";
+        subtract.style.width = "100px";
+        subtract.style.height = "100px";
+        subtract.style.borderRadius = "100px";
+        subtract.style.fontSize = "50px";
+
+        let one = document.createElement("button");
+        one.innerHTML = "1";
+        one.style.width = "100px";
+        one.style.height = "100px";
+        one.style.borderRadius = "100px";
+        one.style.fontSize = "50px";
+
+        let two = document.createElement("button");
+        two.innerHTML = "2";
+        two.style.width = "100px";
+        two.style.height = "100px";
+        two.style.borderRadius = "100px";
+        two.style.fontSize = "50px";
+
+        let three = document.createElement("button");
+        three.innerHTML = "3";
+        three.style.width = "100px";
+        three.style.height = "100px";
+        three.style.borderRadius = "100px";
+        three.style.fontSize = "50px";
+
+        let add = document.createElement("button");
+        add.innerHTML = "+";
+        add.style.width = "100px";
+        add.style.height = "100px";
+        add.style.borderRadius = "100px";
+        add.style.fontSize = "50px";
+
+        let zero = document.createElement("button");
+        zero.innerHTML = "0";
+        zero.style.width = "200px"; // O botão "0" geralmente ocupa o dobro do tamanho
+        zero.style.height = "100px";
+        zero.style.borderRadius = "100px";
+        zero.style.fontSize = "50px";
+
+        let decimal = document.createElement("button");
+        decimal.innerHTML = ".";
+        decimal.style.width = "100px";
+        decimal.style.height = "100px";
+        decimal.style.borderRadius = "100px";
+        decimal.style.fontSize = "50px";
+
+        let equals = document.createElement("button");
+        equals.innerHTML = "=";
+        equals.style.width = "100px";
+        equals.style.height = "100px";
+        equals.style.borderRadius = "100px";
+        equals.style.fontSize = "50px";
+        equals.style.backgroundColor = "orange";
+        equals.style.color = "white";
+
+
+        sectionMethods.appendChild(ACButton);
+        sectionMethods.appendChild(moreAndLess);
+        sectionMethods.appendChild(restoDivisao);
+        sectionMethods.appendChild(Divisao);
+        sectionMethods.appendChild(seven);
+        sectionMethods.appendChild(eight);
+        sectionMethods.appendChild(nine);
+        sectionMethods.appendChild(multiply);
+        sectionMethods.appendChild(four);
+        sectionMethods.appendChild(five);
+        sectionMethods.appendChild(six);
+        sectionMethods.appendChild(subtract);
+        sectionMethods.appendChild(one);
+        sectionMethods.appendChild(two);
+        sectionMethods.appendChild(three);
+        sectionMethods.appendChild(add);
+        sectionMethods.appendChild(zero);
+        sectionMethods.appendChild(decimal);
+        sectionMethods.appendChild(equals);
+
+
+
+
+
+
+    </script>
+</body>
+</html>
